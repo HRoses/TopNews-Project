@@ -14,14 +14,13 @@ async function getNewsData(url) {
         const section = await page.$$eval('li.dc.imageLeft > div.element.teaser', function (news) {
             return news.slice(0,5).map((n) => ({
                 img: n.querySelector('div.teaserImage > a >img').getAttribute('src').trim(),
-                description: n.querySelector('h2.teaserTitle > a').textContent
+                description: n.querySelector('h2.teaserTitle > a').textContent, 
+                url: n.querySelector('h2.teaserTitle > a').getAttribute('href') 
             }));
         });
-
-
-
+        
         console.log(section);
-        fs.writeFileSync('./server/data/newsImage.json', JSON.stringify(section));
+        fs.writeFileSync('./server/data/newsData.json', JSON.stringify(section));
 
         // await page.screenshot({ path: './server/data/screenshot.png' });
         await browser.close();
@@ -29,7 +28,7 @@ async function getNewsData(url) {
     } catch (e) {
         console.log(e.message)
     }
-
+    
 };
 
 getNewsData(url); 
