@@ -58,7 +58,15 @@ body {
     ;
     border-radius: 20px;
     overflow: hidden;
-    gap: 50px;
+    gap: 20px;
+}
+
+.columns {
+    padding: 10px;
+    border-radius: 20px;
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .col-1 {
@@ -108,10 +116,6 @@ body {
     width: 50%;
     border-radius: 30px;
 }
-
-
-
-
 
 
 
